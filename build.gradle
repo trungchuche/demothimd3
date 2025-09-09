@@ -1,0 +1,55 @@
+
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.10.2'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+// Ép toàn bộ compile/build dùng UTF-8
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+    options.charSet = 'UTF-8'
+    options.docEncoding = 'UTF-8'
+}
+
+dependencies {
+    // Servlet API (Tomcat đã có sẵn, nên để compileOnly)
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // JSP Standard Tag Library (JSTL)
+    implementation 'javax.servlet:jstl:1.2'
+
+    // MySQL JDBC driver
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // JUnit cho test
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+    // Thêm JSTL API
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0'
+
+    // Thêm JSTL Implementation
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
