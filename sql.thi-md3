@@ -1,0 +1,28 @@
+-- tao bang thi thuc hanh
+CREATE DATABASE quanly_sinhvien;
+
+USE quanly_sinhvien;
+
+CREATE TABLE sinhvien_noitru (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ten_sv VARCHAR(100) NOT NULL,
+    sdt VARCHAR(15) NOT NULL,
+    ngay_bat_dau DATE NOT NULL,
+    hinh_thuc_thanh_toan VARCHAR(50) NOT NULL,
+    ghi_chu TEXT
+);
+
+select * from sinhvien_noitru;
+
+USE quanly_sinhvien;
+
+INSERT INTO sinhvien_noitru (ten_sv, sdt, ngay_bat_dau, hinh_thuc_thanh_toan, ghi_chu)
+VALUES
+('Nguyễn Văn A', '0912345678', '2025-01-15', 'Tiền mặt', 'Sinh viên năm 1, phòng 101'),
+('Trần Thị B', '0987654321', '2025-02-01', 'Chuyển khoản', 'Ở ghép với bạn cùng lớp'),
+('Lê Văn C', '0933123456', '2025-03-10', 'Tiền mặt', 'Sinh viên năm 2, thích đá bóng'),
+('Phạm Thị D', '0977001122', '2025-04-20', 'Chuyển khoản', 'Năm cuối, thực tập tại công ty'),
+('Hoàng Văn E', '0909123456', '2025-05-05', 'Tiền mặt', 'Sinh viên trao đổi quốc tế');
+
+
+
