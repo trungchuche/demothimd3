@@ -9,10 +9,12 @@
 <body class="container mt-4">
 <h2>Quản lý sinh viên nội trú</h2>
 
-<form action="sinhvienServlet" method="get" class="d-flex mb-3">
+<form action="sinhvienServlet" method="get">
     <input type="hidden" name="action" value="search"/>
     <input type="text" name="search" class="form-control me-2" placeholder="Tìm kiếm theo tên..."/>
+    <%--    ấn thanh tìm kiếm với nội dung rỗng để quay lại bảng--%>
     <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    <%--    chuẩn sang phương thức new của servlet sẽ--%>
     <a href="sinhvienServlet?action=new" class="btn btn-success ms-2">+ Tạo mới</a>
 </form>
 
@@ -37,9 +39,8 @@
                 <td>${sv.hinhThucThanhToan}</td>
                 <td>${sv.ghiChu}</td>
                 <td>
-                    <a href="sinhvienServlet?action=edit&id=${sv.id}" class="btn btn-warning">Sửa</a>
+                    <a href="sinhvienServlet?action=edit&id=${sv.id}">Sửa</a>
                     <a href="sinhvienServlet?action=delete&id=${sv.id}"
-                       class="btn btn-danger"
                        onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
                 </td>
             </tr>
